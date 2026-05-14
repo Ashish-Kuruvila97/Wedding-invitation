@@ -444,6 +444,47 @@
         padding: 58px 18px;
       }
     }
+    .invite-photo-layout {
+  display: grid;
+  grid-template-columns: 1fr 0.85fr;
+  gap: 28px;
+  align-items: center;
+  min-height: 100vh;
+  padding: 40px 22px;
+}
+
+.invite-photo-layout .hero {
+  min-height: auto;
+  padding: 0;
+}
+
+.invite-photo-layout .hero-card {
+  padding: 48px 24px;
+}
+
+.invite-photo-layout #gallery {
+  padding: 0;
+}
+
+.invite-photo-layout .section-title {
+  font-size: clamp(30px, 4vw, 48px);
+}
+
+.invite-photo-layout .photo {
+  min-height: auto;
+}
+
+.invite-photo-layout .portrait-photo img {
+  width: 100%;
+  max-height: 78vh;
+  object-fit: cover;
+}
+
+@media (max-width: 900px) {
+  .invite-photo-layout {
+    grid-template-columns: 1fr;
+  }
+}
   </style>
 </head>
 <body class="locked">
@@ -466,6 +507,7 @@
 
   <button class="music-control" id="musicToggle" aria-label="Toggle music">♫</button>
 
+  <div class="invite-photo-layout">
   <header class="hero" id="home">
     <div class="hero-card">
       <p class="small-title">Together with our families</p>
@@ -496,6 +538,8 @@
     </div>
   </div>
 </section>
+    </div>
+    
 
   
   <section id="details">
