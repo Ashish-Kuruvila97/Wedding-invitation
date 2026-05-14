@@ -353,6 +353,21 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 18px;
     }
+    .single-photo {
+  grid-template-columns: 1fr;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.portrait-photo {
+  min-height: auto;
+  padding: 0;
+  background: transparent;
+}
+
+.portrait-photo img {
+  border-radius: 30px;
+}
 
     .photo {
       min-height: 280px;
@@ -506,17 +521,17 @@
     </div>
   </section>
 
-  <section id="gallery">
-    <div class="section-inner">
-      <h2 class="section-title">Gallery</h2>
-      <p class="section-subtitle">Replace these boxes with your photos later.</p>
-      <div class="gallery">
-        <div class="photo">Add photo 1<br>Example: images/photo1.jpg</div>
-        <div class="photo">Add photo 2<br>Example: images/photo2.jpg</div>
-        <div class="photo">Add photo 3<br>Example: images/photo3.jpg</div>
+<section id="gallery">
+  <div class="section-inner">
+    <h2 class="section-title">Our Wedding Portrait</h2>
+    <p class="section-subtitle">A special memory for our wedding celebration.</p>
+    <div class="gallery single-photo">
+      <div class="photo portrait-photo">
+        <img src="wedding-photo.png" alt="Wedding portrait of the couple">
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
   <section id="rsvp">
     <div class="section-inner">
