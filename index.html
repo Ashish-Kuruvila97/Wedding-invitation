@@ -582,35 +582,32 @@
   text-transform: uppercase;
   color: #d4af37;
 }
-    /* Final royal message before website opens */
-.see-you-message {
-  position: absolute;
-  inset: 0;
-  margin: auto;
-  width: min(430px, 86vw);
-  height: 520px;
-  z-index: 6;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+/* Final see-you message at the end of website */
+#see-you-section {
+  padding: 90px 22px;
+}
+
+.end-message {
+  position: relative;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 54px 28px;
   text-align: center;
   color: var(--soft-gold);
   opacity: 0;
-  transform: translateY(28px) scale(0.96);
-  transition: opacity 0.9s ease, transform 0.9s ease;
-  pointer-events: none;
+  transform: translateY(34px) scale(0.96);
+  transition: opacity 1s ease, transform 1s ease;
 }
 
-.see-you-message::before {
+.end-message::before {
   content: "";
   position: absolute;
   inset: 0;
   border: 1px solid rgba(212, 175, 55, 0.35);
   border-radius: 34px;
   background:
-    radial-gradient(circle at center, rgba(212,175,55,0.12), transparent 60%),
-    rgba(5, 11, 22, 0.52);
+    radial-gradient(circle at center, rgba(212,175,55,0.14), transparent 60%),
+    rgba(5, 11, 22, 0.58);
   box-shadow: 0 0 60px rgba(212, 175, 55, 0.18);
   z-index: -1;
 }
@@ -618,7 +615,7 @@
 .see-you-monogram {
   width: 86px;
   height: 86px;
-  margin-bottom: 34px;
+  margin: 0 auto 28px;
   border-radius: 50%;
   display: grid;
   place-items: center;
@@ -636,40 +633,33 @@
   margin-bottom: 6px;
 }
 
-.see-you-message h2 {
+.end-message h2 {
   font-family: 'Playfair Display', serif;
   font-weight: 400;
   font-size: clamp(52px, 14vw, 86px);
   line-height: 1;
   color: #f7e7b8;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
 }
 
-.see-you-message h2 sup {
+.end-message h2 sup {
   font-size: 28px;
   vertical-align: super;
   margin-left: 4px;
 }
 
 .see-you-note {
-  max-width: 310px;
+  max-width: 360px;
+  margin: 0 auto;
   font-family: 'Playfair Display', serif;
   font-size: clamp(18px, 4vw, 25px);
   line-height: 1.5;
   color: rgba(246, 237, 220, 0.9);
 }
 
-.royal-transition.message .see-you-message {
+.end-message.visible {
   opacity: 1;
   transform: translateY(0) scale(1);
-}
-
-.royal-transition.message .royal-door {
-  opacity: 0.18;
-}
-
-.royal-transition.message .sparkle-field span {
-  animation: sparkleBurst 1.5s ease-out forwards;
 }
   </style>
 </head>
@@ -693,12 +683,7 @@
       <div class="royal-door left-door"><div class="door-pattern"></div></div>
       <div class="royal-door right-door"><div class="door-pattern"></div></div>
       <div class="royal-transition-glow">AC</div>
-      <div class="see-you-message" id="seeYouMessage">
-  <div class="see-you-monogram">AC</div>
-  <p class="see-you-small">See you on</p>
-  <h2>July 13<sup>th</sup></h2>
-  <p class="see-you-note">We can’t wait to celebrate with you</p>
-</div>
+     
     </div>
   </div>
 
@@ -799,7 +784,12 @@
       </div>
     </div>
   </section>
-
+ <div class="see-you-message" id="seeYouMessage">
+  <div class="see-you-monogram">AC</div>
+  <p class="see-you-small">See you on</p>
+  <h2>July 13<sup>th</sup></h2>
+  <p class="see-you-note">We can’t wait to celebrate with you</p>
+</div>
   <footer>
     <div class="signature">Ashish & Christa</div>
     <p>Thank you for being part of our celebration.</p>
@@ -836,17 +826,14 @@
     royalTransition.classList.add('reveal');
   }, 900);
 
-  // Step 3: show "See you on July 13th"
-  setTimeout(() => {
-    royalTransition.classList.add('message');
-  }, 1900);
+  
 
   // Step 4: open the website
-  setTimeout(() => {
-    intro.classList.add('hidden');
-    document.body.classList.remove('locked');
-    musicToggle.classList.add('show');
-  }, 4300);
+setTimeout(() => {
+  intro.classList.add('hidden');
+  document.body.classList.remove('locked');
+  musicToggle.classList.add('show');
+}, 2700);
 });
 
     musicToggle.addEventListener('click', async () => {
@@ -904,6 +891,21 @@
     }
 
     createSparkles();
+    const endMessage = document.querySelector('.end-message');
+
+if (endMessage) {
+  const endMessageObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        endMessage.classList.add('visible');
+      }
+    });
+  }, {
+    threshold: 0.3
+  });
+
+  endMessageObserver.observe(endMessage);
+}
   </script>
 </body>
 </html>
