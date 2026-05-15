@@ -83,77 +83,192 @@
       visibility: hidden;
     }
 
-    .envelope-wrap {
-      text-align: center;
-      animation: float 3s ease-in-out infinite;
-    }
+.envelope-wrap {
+  position: relative;
+  text-align: center;
+  width: min(440px, 90vw);
+  margin: 0 auto;
+  animation: float 3s ease-in-out infinite;
+}
 
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
 
-    .envelope {
-      width: min(320px, 82vw);
-      height: 210px;
-      background: #fff;
-      border-radius: 16px;
-      position: relative;
-      margin: 0 auto 28px;
-      box-shadow: 0 24px 70px rgba(100, 40, 60, 0.25);
-      overflow: hidden;
-    }
+.new-envelope {
+  width: min(360px, 84vw);
+  height: 230px;
+  background: #f7c9d0;
+  border-radius: 16px;
+  position: relative;
+  margin: 0 auto 28px;
+  box-shadow: 0 26px 80px rgba(100, 40, 60, 0.25);
+  overflow: hidden;
+  transition: transform 1s ease;
+}
 
-    .envelope:before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(145deg, transparent 49%, #f3bfc5 50%),
-                  linear-gradient(215deg, transparent 49%, #f7d7d9 50%);
-      background-size: 50% 100%, 50% 100%;
-      background-position: left, right;
-      background-repeat: no-repeat;
-    }
+.new-envelope::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(145deg, transparent 49%, #f8dce0 50%),
+    linear-gradient(215deg, transparent 49%, #f4b9c2 50%);
+  background-size: 50% 100%, 50% 100%;
+  background-position: left, right;
+  background-repeat: no-repeat;
+  z-index: 3;
+}
 
-    .envelope:after {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: 0;
-      margin: auto;
-      width: 0;
-      height: 0;
-      border-left: 160px solid transparent;
-      border-right: 160px solid transparent;
-      border-top: 120px solid #e9aeb7;
-      transform-origin: top;
-      animation: flap 2.2s ease-in-out infinite;
-    }
+.new-envelope::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 56%;
+  background: linear-gradient(145deg, #f4b9c2, #f8dce0);
+  clip-path: polygon(0 0, 50% 58%, 100% 0, 100% 100%, 0 100%);
+  z-index: 5;
+}
 
-    @keyframes flap {
-      0%, 100% { transform: rotateX(0deg); }
-      50% { transform: rotateX(32deg); }
-    }
+.flap {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 58%;
+  background: #e8a6b3;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  transform-origin: top;
+  z-index: 6;
+  transition: transform 1s ease 0.6s;
+}
 
-    .seal {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      width: 76px;
-      height: 76px;
-      background: var(--deep-rose);
-      color: white;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      font-family: 'Great Vibes', cursive;
-      font-size: 38px;
-      z-index: 2;
-      box-shadow: 0 8px 20px rgba(90, 30, 45, 0.25);
-    }
+.letter {
+  position: absolute;
+  left: 50%;
+  bottom: 20px;
+  width: 78%;
+  height: 170px;
+  transform: translateX(-50%) translateY(80px);
+  background: #fffaf3;
+  border: 2px solid rgba(184, 138, 68, 0.25);
+  border-radius: 12px;
+  z-index: 4;
+  padding: 26px 16px;
+  text-align: center;
+  box-shadow: 0 12px 32px rgba(80, 40, 50, 0.16);
+  transition: transform 1.1s ease 1.1s;
+}
 
+.letter-flowers {
+  color: #b05b6b;
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.letter-small {
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(61, 47, 47, 0.65);
+  margin: 5px 0;
+}
+
+.letter-main {
+  font-family: 'Great Vibes', cursive;
+  font-size: 34px;
+  color: var(--deep-rose);
+  margin: 8px 0;
+}
+
+.seal {
+  position: absolute;
+  left: 50%;
+  top: 52%;
+  transform: translate(-50%, -50%);
+  width: 78px;
+  height: 78px;
+  background: var(--deep-rose);
+  color: white;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-family: 'Great Vibes', cursive;
+  font-size: 34px;
+  z-index: 8;
+  box-shadow: 0 8px 20px rgba(90, 30, 45, 0.25);
+  transition: opacity 0.5s ease, transform 0.8s ease;
+}
+
+.ribbon {
+  position: absolute;
+  top: 95px;
+  width: 180px;
+  height: 28px;
+  background: linear-gradient(90deg, #d98599, #f0aabb, #d98599);
+  z-index: 7;
+  box-shadow: 0 8px 18px rgba(150, 70, 90, 0.16);
+  transition: transform 1s ease, opacity 1s ease;
+}
+
+.ribbon-left {
+  right: 50%;
+  border-radius: 999px 0 0 999px;
+}
+
+.ribbon-right {
+  left: 50%;
+  border-radius: 0 999px 999px 0;
+}
+
+.envelope-wrap.opening .ribbon-left {
+  transform: translateX(-220px) rotate(-8deg);
+  opacity: 0;
+}
+
+.envelope-wrap.opening .ribbon-right {
+  transform: translateX(220px) rotate(8deg);
+  opacity: 0;
+}
+
+.envelope-wrap.opening .seal {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.5);
+}
+
+.envelope-wrap.opening .flap {
+  transform: rotateX(180deg);
+}
+
+.envelope-wrap.opening .letter {
+  transform: translateX(-50%) translateY(-95px);
+}
+
+.envelope-wrap.opening .new-envelope {
+  transform: scale(1.03);
+}
+
+@media (max-width: 520px) {
+  .ribbon {
+    width: 135px;
+  }
+
+  .envelope-wrap.opening .ribbon-left {
+    transform: translateX(-150px) rotate(-8deg);
+  }
+
+  .envelope-wrap.opening .ribbon-right {
+    transform: translateX(150px) rotate(8deg);
+  }
+
+  .letter-main {
+    font-size: 30px;
+  }
+}
     .open-btn, .primary-btn, .secondary-btn {
       border: 0;
       cursor: pointer;
@@ -490,15 +605,27 @@
 <body class="locked">
   <div class="petals" id="petals"></div>
 
-  <div class="intro" id="intro">
-    <div class="envelope-wrap">
-      <div class="envelope">
-        <div class="seal">A</div>
+ <div class="intro" id="intro">
+  <div class="envelope-wrap" id="envelopeWrap">
+
+    <div class="ribbon ribbon-left"></div>
+    <div class="ribbon ribbon-right"></div>
+
+    <div class="envelope new-envelope">
+      <div class="flap"></div>
+      <div class="letter">
+        <div class="letter-flowers">❀ ❀ ❀</div>
+        <p class="letter-small">You're Invited</p>
+        <p class="letter-main">Ashish & Christa</p>
+        <p class="letter-small">To our engagement</p>
       </div>
-      <button class="open-btn" id="openInvitation">Open Invitation</button>
-      <p class="intro-note">Tap to open our engagement invitation</p>
+      <div class="seal">AC</div>
     </div>
+
+    <button class="open-btn" id="openInvitation">Open Engagement Invitation</button>
+    <p class="intro-note">Tap to open our engagement invitation</p>
   </div>
+</div>
 
   <!-- Optional background music. Replace music.mp3 with your own file name. -->
   <audio id="bgMusic" loop>
@@ -595,20 +722,28 @@
     const musicToggle = document.getElementById('musicToggle');
     let musicPlaying = false;
 
-    openInvitation.addEventListener('click', async () => {
-      intro.classList.add('hidden');
-      document.body.classList.remove('locked');
-      musicToggle.classList.add('show');
+    const envelopeWrap = document.getElementById('envelopeWrap');
 
-      try {
-        await bgMusic.play();
-        musicPlaying = true;
-        musicToggle.textContent = '♫';
-      } catch (error) {
-        musicPlaying = false;
-        musicToggle.textContent = '▶';
-      }
-    });
+openInvitation.addEventListener('click', async () => {
+  envelopeWrap.classList.add('opening');
+  openInvitation.style.pointerEvents = 'none';
+  openInvitation.textContent = 'Opening...';
+
+  try {
+    await bgMusic.play();
+    musicPlaying = true;
+    musicToggle.textContent = '♫';
+  } catch (error) {
+    musicPlaying = false;
+    musicToggle.textContent = '▶';
+  }
+
+  setTimeout(() => {
+    intro.classList.add('hidden');
+    document.body.classList.remove('locked');
+    musicToggle.classList.add('show');
+  }, 2300);
+});
 
     musicToggle.addEventListener('click', async () => {
       if (musicPlaying) {
