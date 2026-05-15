@@ -539,6 +539,25 @@
       .countdown { grid-template-columns: repeat(2, 1fr); }
       section { padding: 58px 18px; }
     }
+/* Glow around the Open Invitation area on the cover image */
+.royal-hidden-btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  box-shadow: 0 0 28px rgba(212, 175, 55, 0.55);
+  animation: royalButtonGlow 2.8s ease-in-out infinite;
+}
+
+@keyframes royalButtonGlow {
+  0%, 100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+    
   </style>
 </head>
 
