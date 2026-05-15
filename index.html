@@ -588,10 +588,19 @@
 }
 
 .end-message {
-  position: relative;
+  position: relative !important;
+  left: auto !important;
+  right: auto !important;
+  inset: auto !important;
+  width: min(720px, 92vw) !important;
+  height: auto !important;
   max-width: 720px;
-  margin: 0 auto;
+  margin: 0 auto !important;
   padding: 54px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   color: var(--soft-gold);
   opacity: 0;
@@ -790,6 +799,16 @@
   <h2>July 13<sup>th</sup></h2>
   <p class="see-you-note">We can’t wait to celebrate with you</p>
 </div>
+  <section id="see-you-section">
+  <div class="section-inner">
+    <div class="end-message">
+      <div class="see-you-monogram">AC</div>
+      <p class="see-you-small">See you on</p>
+      <h2>July 13<sup>th</sup></h2>
+      <p class="see-you-note">We can’t wait to celebrate with you</p>
+    </div>
+  </div>
+</section>
   <footer>
     <div class="signature">Ashish & Christa</div>
     <p>Thank you for being part of our celebration.</p>
