@@ -1197,6 +1197,40 @@
 .royal-transition.reveal::after {
   opacity: 1;
 }
+    /* Fix page layout back to normal vertical scrolling */
+.invite-photo-layout {
+  display: block !important;
+  min-height: auto !important;
+  padding: 0 !important;
+}
+
+.intro {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 9999 !important;
+}
+
+.intro.hidden {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+header.hero {
+  min-height: 100vh !important;
+  display: grid !important;
+  place-items: center !important;
+}
+
+section {
+  display: block !important;
+  width: 100% !important;
+}
+
+.section-inner {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
   </style>
 </head>
 <body class="locked">
@@ -1234,7 +1268,7 @@
 
   <button class="music-control" id="musicToggle" aria-label="Toggle music">♫</button>
 
-  <div class="invite-photo-layout">
+
   <header class="hero" id="home">
     <div class="hero-card">
       <p class="small-title">Together with our families</p>
@@ -1265,7 +1299,7 @@
     </div>
   </div>
 </section>
-    </div>
+    
     
 
   
