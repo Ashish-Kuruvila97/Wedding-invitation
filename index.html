@@ -8,14 +8,16 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --cream: #fff8f0;
-      --rose: #d8a7a7;
-      --deep-rose: #a85f6a;
-      --gold: #b88a44;
-      --text: #3d2f2f;
-      --white: #ffffff;
-    }
+:root {
+  --cream: #0b1730;
+  --rose: #12264a;
+  --deep-rose: #c9a35f;
+  --gold: #d4af37;
+  --text: #f6eddc;
+  --white: #ffffff;
+  --navy: #081224;
+  --navy-soft: #10213f;
+}
 
     * {
       box-sizing: border-box;
@@ -27,12 +29,12 @@
       scroll-behavior: smooth;
     }
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #fff8f0, #ffe9e9, #fff6ec);
-      color: var(--text);
-      overflow-x: hidden;
-    }
+ body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #081224, #10213f, #0b1730);
+  color: var(--text);
+  overflow-x: hidden;
+}
 
     body.locked {
       overflow: hidden;
@@ -284,17 +286,17 @@
       gap: 8px;
     }
 
-    .open-btn, .primary-btn {
-      background: var(--deep-rose);
-      color: white;
-      box-shadow: 0 10px 25px rgba(168, 95, 106, 0.32);
-    }
+   .open-btn, .primary-btn {
+  background: linear-gradient(135deg, #12385a, #0f2a44);
+  color: #f7e7b8;
+  border: 1px solid rgba(212,175,55,0.45);
+}
 
     .secondary-btn {
-      background: white;
-      color: var(--deep-rose);
-      border: 1px solid rgba(168, 95, 106, 0.25);
-    }
+  background: transparent;
+  color: #f7e7b8;
+  border: 1px solid rgba(212,175,55,0.35);
+}
 
     .open-btn:hover, .primary-btn:hover, .secondary-btn:hover {
       transform: translateY(-3px);
@@ -318,9 +320,9 @@
     }
 
     .hero-card {
-      width: min(940px, 100%);
-      background: rgba(255, 255, 255, 0.58);
-      border: 1px solid rgba(255, 255, 255, 0.75);
+  width: min(940px, 100%);
+  background: rgba(8, 18, 36, 0.72);
+  border: 1px solid rgba(212, 175, 55, 0.25);
       border-radius: 36px;
       padding: clamp(34px, 6vw, 76px) 24px;
       box-shadow: 0 28px 80px rgba(117, 65, 75, 0.18);
@@ -374,8 +376,8 @@
       margin: 32px auto;
     }
 
-    .time-box {
-      background: rgba(255, 255, 255, 0.72);
+   .time-box {
+  background: rgba(8, 18, 36, 0.8);
       border-radius: 22px;
       padding: 18px 8px;
       box-shadow: 0 10px 25px rgba(140, 72, 82, 0.12);
@@ -437,9 +439,9 @@
       gap: 20px;
     }
 
-    .detail-card, .story-card, .rsvp-card {
-      background: rgba(255, 255, 255, 0.72);
-      border: 1px solid rgba(255, 255, 255, 0.75);
+    .detail-card, .story-card {
+  background: rgba(8, 18, 36, 0.75);
+  border: 1px solid rgba(212, 175, 55, 0.2);
       border-radius: 28px;
       padding: 28px;
       box-shadow: 0 18px 45px rgba(117, 65, 75, 0.12);
@@ -600,30 +602,134 @@
     grid-template-columns: 1fr;
   }
 }
+.royal-intro {
+  background: radial-gradient(circle at center, #10213f 0%, #081224 70%, #050b16 100%);
+}
+
+.royal-opening-card {
+  position: relative;
+  width: min(340px, 88vw);
+  text-align: center;
+  z-index: 3;
+}
+
+.royal-opening-image {
+  width: 100%;
+  border-radius: 28px;
+  display: block;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+}
+
+.royal-open-btn {
+  margin-top: 18px;
+  border: 1px solid rgba(212, 175, 55, 0.7);
+  background: linear-gradient(135deg, #0f2a44, #12385a);
+  color: #f7e7b8;
+  padding: 14px 34px;
+  border-radius: 999px;
+  font-size: 16px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: 0 0 0 rgba(212, 175, 55, 0);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.royal-open-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.35);
+}
+
+.royal-transition {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 30;
+}
+
+.royal-curtain {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background:
+    radial-gradient(circle at center, rgba(212,175,55,0.08), transparent 55%),
+    linear-gradient(180deg, #0b1730 0%, #071121 100%);
+  transition: transform 1.3s ease;
+}
+
+.left-curtain {
+  left: 0;
+  border-right: 1px solid rgba(212,175,55,0.25);
+  transform: translateX(0);
+}
+
+.right-curtain {
+  right: 0;
+  border-left: 1px solid rgba(212,175,55,0.25);
+  transform: translateX(0);
+}
+
+.royal-glow {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 52px;
+  color: #f7e7b8;
+  border: 1px solid rgba(212,175,55,0.5);
+  box-shadow: 0 0 40px rgba(212,175,55,0.35);
+  background: radial-gradient(circle, rgba(212,175,55,0.2), rgba(8,18,36,0.2));
+  opacity: 0;
+  transform: scale(0.7);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.royal-transition.active {
+  opacity: 1;
+}
+
+.royal-transition.active .royal-glow {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.royal-transition.reveal .left-curtain {
+  transform: translateX(-100%);
+}
+
+.royal-transition.reveal .right-curtain {
+  transform: translateX(100%);
+}
+
+.intro-note {
+  margin-top: 12px;
+  color: #d8c9a3;
+}
+
+    
   </style>
 </head>
 <body class="locked">
   <div class="petals" id="petals"></div>
 
- <div class="intro" id="intro">
-  <div class="envelope-wrap" id="envelopeWrap">
-
-    <div class="ribbon ribbon-left"></div>
-    <div class="ribbon ribbon-right"></div>
-
-    <div class="envelope new-envelope">
-      <div class="flap"></div>
-      <div class="letter">
-        <div class="letter-flowers">❀ ❀ ❀</div>
-        <p class="letter-small">You're Invited</p>
-        <p class="letter-main">Ashish & Christa</p>
-        <p class="letter-small">To our engagement</p>
-      </div>
-      <div class="seal">AC</div>
-    </div>
-
-    <button class="open-btn" id="openInvitation">Open Engagement Invitation</button>
+ <div class="intro royal-intro" id="intro">
+  <div class="royal-opening-card" id="royalOpeningCard">
+    <img src="opening-page.png" alt="Royal engagement opening page" class="royal-opening-image">
+    <button class="royal-open-btn" id="openInvitation">Open Invitation</button>
     <p class="intro-note">Tap to open our engagement invitation</p>
+  </div>
+
+  <div class="royal-transition" id="royalTransition">
+    <div class="royal-curtain left-curtain"></div>
+    <div class="royal-curtain right-curtain"></div>
+    <div class="royal-glow">AC</div>
   </div>
 </div>
 
@@ -724,9 +830,10 @@
 
     const envelopeWrap = document.getElementById('envelopeWrap');
 
+const royalTransition = document.getElementById('royalTransition');
+
 openInvitation.addEventListener('click', async () => {
-  envelopeWrap.classList.add('opening');
-  openInvitation.style.pointerEvents = 'none';
+  openInvitation.disabled = true;
   openInvitation.textContent = 'Opening...';
 
   try {
@@ -738,11 +845,17 @@ openInvitation.addEventListener('click', async () => {
     musicToggle.textContent = '▶';
   }
 
+  royalTransition.classList.add('active');
+
+  setTimeout(() => {
+    royalTransition.classList.add('reveal');
+  }, 700);
+
   setTimeout(() => {
     intro.classList.add('hidden');
     document.body.classList.remove('locked');
     musicToggle.classList.add('show');
-  }, 2300);
+  }, 2100);
 });
 
     musicToggle.addEventListener('click', async () => {
