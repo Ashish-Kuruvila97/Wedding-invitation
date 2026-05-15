@@ -557,7 +557,31 @@
     opacity: 1;
   }
 }
-    
+    .verse-card {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 34px 26px;
+  text-align: center;
+  background: rgba(8, 18, 36, 0.72);
+  border: 1px solid rgba(212, 175, 55, 0.28);
+  border-radius: 28px;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.22);
+}
+
+.verse-text {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(24px, 4vw, 38px);
+  line-height: 1.45;
+  color: #f7e7b8;
+}
+
+.verse-ref {
+  margin-top: 16px;
+  font-size: 14px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #d4af37;
+}
   </style>
 </head>
 
@@ -611,7 +635,14 @@
       </div>
     </div>
   </header>
-
+<section id="verse">
+  <div class="section-inner">
+    <div class="verse-card">
+      <p class="verse-text">“The Lord has done great things for us, and we are filled with joy.”</p>
+      <p class="verse-ref">Psalm 126:3</p>
+    </div>
+  </div>
+</section>
   <section id="gallery">
     <div class="section-inner">
       <h2 class="section-title">A Beautiful Beginning</h2>
@@ -634,7 +665,7 @@
         <div class="detail-card">
           <h3>Ceremony</h3>
           <p>
-            <strong>Time:</strong> 10:30 AM<br>
+            <strong>Time:</strong> 11:30 AM<br>
             <strong>Venue:</strong> ARC CONVENTION CENTER<br>
             <strong>Address:</strong> Poothrikka, Ernakulam-682308, Kerala
           </p>
@@ -643,7 +674,7 @@
         <div class="detail-card">
           <h3>Reception</h3>
           <p>
-            <strong>Time:</strong> 12:30 PM<br>
+            <strong>Time:</strong> 1:00 PM<br>
             <strong>Venue:</strong> Same as above<br>
             <strong>Dress Code:</strong> Formal / Traditional
           </p>
@@ -680,7 +711,7 @@
   </footer>
 
   <script>
-    const weddingDate = new Date('2026-07-13T10:30:00').getTime();
+    const weddingDate = new Date('2026-07-13T11:30:00').getTime();
 
     const intro = document.getElementById('intro');
     const openInvitation = document.getElementById('openInvitation');
